@@ -1,4 +1,20 @@
-var data = {
+const container = document.getElementById('container');
+
+function createTree(container, data) {
+  const ul = document.createElement('ul');
+  container.append(ul);
+  for (const tree in data) {
+    const li = document.createElement('li');
+    li.innerHTML = tree;
+    ul.append(li);
+
+    if (Object.keys(data[tree]).length > 0) {
+      createTree(li, data[tree]);
+    };
+  }
+}
+
+createTree(container, {
 	"Рыбы": {
     "Форель": {},
     "Щука": {}
@@ -13,20 +29,4 @@ var data = {
       "Тополь": {}
     }
   }
-};
-
-const tree = document.getElementById('tree');
-
-
-function createTree(data, tree) {
-	const ul = document.createElement('ul');
-	for (let key in data) {
-		const li = document.createElement('li');
-		li.innerHTML = key;
-		ul.append(li);
-		createTree(data[key], li);
-	}
-	tree.append(ul);
-}
-
-createTree(data, tree);
+});
