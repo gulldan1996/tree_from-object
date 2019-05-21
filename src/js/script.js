@@ -13,7 +13,8 @@ function createTree(container, data) {
     };
   }
 }
-
+// it's a copy of the solution that Danyl wrote on Friday.
+// find your own solution
 createTree(container, {
 	"Рыбы": {
     "Форель": {},
