@@ -1,21 +1,21 @@
-const container = document.getElementById('container');
+const tree = document.getElementById('tree');
 
-function createTree(container, data) {
+function createTree(tree, data) {
   const ul = document.createElement('ul');
-  container.append(ul);
-  for (const tree in data) {
+  tree.append(ul);
+  for (const child in data) {
     const li = document.createElement('li');
-    li.innerHTML = tree;
+    li.innerHTML = child;
     ul.append(li);
 
-    if (Object.keys(data[tree]).length > 0) {
-      createTree(li, data[tree]);
-    };
+    if (Object.keys(data[child]).length > 0) {
+      createTree(li, data[child]);
+    }
   }
 }
 
-createTree(container, {
-	"Рыбы": {
+createTree(tree, {
+  "Рыбы": {
     "Форель": {},
     "Щука": {}
   },
@@ -23,7 +23,7 @@ createTree(container, {
     "Хвойные": {
       "Лиственница": {},
       "Ель": {}
-  	},
+    },
     "Цветковые": {
       "Берёза": {},
       "Тополь": {}
